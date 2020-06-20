@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Total Tiles Number</title>
+	<script type="text/javascript">
+
+		function show(){
+			if(document.getElementById('r1').checked){
+			document.getElementById('div1').style.display = 'block';
+			document.getElementById('div2').style.display = 'none';
+		}
+		if(document.getElementById('r2').checked){
+			document.getElementById('div2').style.display = 'block';
+			document.getElementById('div1').style.display = 'none';
+		}
+			}
+
+			function Amount(){
+				let amt=0
+				if(document.getElementById('r1').checked){
+					let w=parseInt(document.myForm.rwidth.value);
+					let h=parseInt(document.myForm.rheight.value);
+					let rarea=w*h;
+
+					let fwh=parseInt(document.myForm.ft.value);
+					let tarea=fwh*fwh;
+
+					 amt=rarea/tarea;
+
+
+				}else if(document.getElementById('r2').checked){
+					let w=parseInt(document.myForm.rwidth.value)*12;
+					let h=parseInt(document.myForm.rheight.value)*12;
+					let rarea=w*h;
+
+					let fw=parseInt(document.myForm.wt1.value);
+					let fh=parseInt(document.myForm.wt2.value);
+					let tarea=fw*fh;
+
+					 amt=rarea/tarea;
+
+				}
+
+				document.myForm.before.value=Math.ceil(amt);
+				let aft=amt+(amt*0.05)
+				document.myForm.after.value=Math.ceil(aft);
+			}
+	</script>
+	<style type="text/css">
+		fieldset{
+			border-color: blue;
+			width: 800px;
+
+		}
+		legend {
+    background-color: skyblue;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+
+
+
+input {
+    margin: .4rem;
+}
+	</style>
+
+</head>
+<body>
+	<form name="myForm">
+		<h1 style="color: teal;font-family: Orbitron; text-align: center">Calculation The Number Of Tiles</h1>
+		
+<fieldset>
+	<legend>Room Area
+	</legend>
+	<label>Enter room'width:</label>
+	<input type="text" name="rwidth" placeholder="width with feet"><br>
+	
+	<label>Enter room'height:</label>
+	<input type="text" name="rheight" placeholder="height with feet">
+
+</fieldset>
+<br>
+
+<fieldset>
+	<legend>Tiles</legend>
+	<label>Floor</label><input type="radio" name="rd" id="r1" onclick="show();" checked="checked">
+	
+	<label>Wall</label><input type="radio" name="rd" id="r2" onclick="show();">
+	
+	<div id="div1" style="display: block;">
+<label>Enter width and height</label>
+<input type="Text" id="floor" name="ft" placeholder="width and height with feet">
+
+<input type="button" onclick="Amount();" value="Calculate">
+</div>
+
+<div id="div2" style="display: none;">
+<label>Enter width :</label>
+<input type="Text" id="ww" name="wt1" placeholder="width  with inches">
+<br>
+<label>Enter height:</label>
+
+<input type="Text" id="hw" name="wt2" placeholder="height with inches">
+
+<input type="button" onclick="Amount();" value="Calculate">
+</div> 
+</fieldset>
+<br>
+<fieldset>
+	<legend>Amount</legend>
+	<label>Required Number of Tiles:</label>
+	<input type="text" id="bamt" name="before" readonly="readonly">
+	<br>
+	<label> Total Number of Tiles(5%):</label>
+	<input type="text" id="aamt" name="after" readonly="readonly">
+
+
+</fieldset>
+	</form>
+
+</body>
+</html>
+
+
+		
+
+		
+
+		
+
+		
+		
+	

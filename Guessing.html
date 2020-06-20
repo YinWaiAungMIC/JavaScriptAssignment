@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing the Number</title>
+	<script type="text/javascript">
+		let rNum=Math.floor(Math.random()*10)+1
+		let check=0
+		let i=1
+		do{
+			let gNum=prompt("Guess The Number:")
+
+			if(rNum==gNum){
+				check=1;
+				alert("Correct !You guessed "+i+"times")
+			}else if(gNum<rNum){
+				alert("Lower")
+			}
+			else
+				alert("Higher")
+			i++
+		}while(check!=1)
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

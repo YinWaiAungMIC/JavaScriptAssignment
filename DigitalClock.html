@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digital Clock</title>
+	<script type="text/javascript">
+		function showTime(){
+    let date = new Date()
+    let h = date.getHours() 
+    let m = date.getMinutes() 
+    let s = date.getSeconds() 
+    
+    
+    if(h == 0){
+        h = 12
+    }
+    
+    if(h > 12)
+        h = h - 12
+    if(h<10)
+    	h="0"+h
+    if(m<10)
+    	m="0"+m
+    if(s<10)
+    	s="0"+s
+    
+   
+    
+    let time = h + ":" + m + ":" + s ;
+    document.getElementById("MyClock").innerHTML = time;
+    //document.getElementById("MyClock").textContent = time;
+    
+    setTimeout(showTime, 1000)
+    
+}
+	</script>
+	<style type="text/css">
+		body {
+    background: black;
+}
+
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+   color: red;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+   
+
+
+}
+	</style>
+</head>
+<body onload="showTime()">
+	<div id="MyClock" class="clock" ></div>
+
+</body>
+</html>
